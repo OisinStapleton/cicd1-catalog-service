@@ -27,7 +27,7 @@ public class ProductService {
         return repository.save(product);
     }
 
-    public Product getProductById(Long id) {
+    public Product getById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product with id " + id + " not found!"));
     }
