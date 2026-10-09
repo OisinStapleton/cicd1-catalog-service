@@ -8,3 +8,6 @@ Browser / Swagger
 
     Seperate Github Repo's
     Seperate open pull requests
+
+## SQL and Normalisation Lab 4
+Final db<>fiddle session: <https://dbfiddle.uk/1F-DMlme>
