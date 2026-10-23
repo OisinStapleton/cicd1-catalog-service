@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -27,6 +28,11 @@ public class ProductService {
     }
 
     public Product getById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(
+                HttpStatus.NOT_FOUND,
+                "Product not found"));
+    }
+    public List<Product> getByMinPrice(BigDecimal minPrice) {
+        return repository.findByMinPrice(minPrice);
     }
 }
