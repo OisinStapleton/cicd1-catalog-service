@@ -12,5 +12,8 @@ public interface ProductRepository
         extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.price >= :minprice ORDER BY p.price ASC")
     List<Product> findByMinPrice(@Param("minprice") BigDecimal minprice);
+    List<Product> findByCategoryName(
+            @Param("categoryName") String categoryName);
+
 
 }
