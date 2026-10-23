@@ -1,8 +1,12 @@
 package ie.atu.catalog.controller;
 
+import ie.atu.catalog.dto.CreateProductRequest;
+import ie.atu.catalog.model.Category;
 import ie.atu.catalog.model.Product;
 import ie.atu.catalog.service.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.util.List;
