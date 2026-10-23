@@ -11,3 +11,6 @@ Browser / Swagger
 
 ## SQL and Normalisation Lab 4
 Final db<>fiddle session: <https://dbfiddle.uk/1F-DMlme>
+
+## JPQL intro Lab 5
+Updating catalog service to run JPQL
