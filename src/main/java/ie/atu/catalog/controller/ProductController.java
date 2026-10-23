@@ -24,10 +24,12 @@ public class ProductController {
     public List<Product> getProducts() {
         return productService.getAll();
     }
-@PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.create(product);
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product createProduct(@RequestBody CreateProductRequest request) {
+        return productService.createProduct(request);
     }
+
 
     @GetMapping("/{id}")
     public Product getById(@PathVariable Long id) { return productService.getById(id); }

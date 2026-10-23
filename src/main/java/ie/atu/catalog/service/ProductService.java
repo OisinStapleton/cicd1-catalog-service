@@ -28,11 +28,24 @@ public class ProductService {
         return repository.findAll();
     }
 
-    public Product create(Product request) {
-        return repository.save(request);
+    public Product createProduct(CreateProductRequest request) {
+        if (request.categoryId() == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "categoryId is required");
+        }
+        Category category = categoryRepository
+                .findById(request.categoryId())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST, "Category does not exist"));
+        Product product = new Product();
+        product.setName(request.name());
+        product.setPrice(request.price());
+        product.setCategory(category);
+        return repository.save(product);
     }
 
-        public Product getById(Long id) {
+
+    public Product getById(Long id) {
         return repository.findById(id).orElseThrow(() -> new ResponseStatusException(
                 HttpStatus.NOT_FOUND,
                 "Product not found"));
